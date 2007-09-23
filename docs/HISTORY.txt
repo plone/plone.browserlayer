@@ -1,0 +1,9 @@
+Changelog for plone.browserlayer
+
+    (name of developer listed in brackets)
+
+plone.browserlayer - 1.0b1 Unreleased
+
+    - Initial package structure.
+      [zopeskel]
+

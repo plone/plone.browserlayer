@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+    <import-step id="browserlayer" version="20070923-01"
+                 handler="plone.browserlayer.exportimport.importLayers"
+                 title="Local browser layers">
+        <dependency step="componentregistry"/>
+        Import local browser layers
+    </import-step>
+</import-steps>

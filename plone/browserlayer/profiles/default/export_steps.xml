@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<export-steps>
+    <export-step id="browserlayer" version="20070923-01"
+                 handler="plone.browserlayer.exportimport.exportLayers"
+                 title="Local browser layers">
+        Export local browser layers
+    </export-step>
+</export-steps>

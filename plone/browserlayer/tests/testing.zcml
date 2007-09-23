@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+    <genericsetup:registerProfile
+        name="testing"
+        title="Tests for local layer support"
+        directory="profiles/testing"
+        description=""
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <browser:page
+        name="layer-test-view"
+        for="*"
+        layer=".tests.interfaces.IMyProductLayer"
+        template="local.pt"
+        permission="zope.Public"
+        />
+    
+</configure>

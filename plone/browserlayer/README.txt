@@ -1,0 +1,148 @@
+====================
+ plone.browserlayer
+====================
+
+This package aims to make it easier to register visual components (e.g. views
+and viewlets) so that they only show up in a Plone site where they have been
+explicitly installed.
+
+Basic usage
+-----------
+
+To use this feature, you should:
+
+ - declare plone.browserlayer as a dependency, e.g. in setup.py:
+ 
+    install_requires=[
+          'plone.browserlayer',
+      ],
+ 
+ - ensure that its ZCML is loaded, e.g. with an include from your own package:
+ 
+    <include package="plone.browserlayer" />
+    
+ - ensure that its extension profile is installed in portal_setup - otherwise 
+    the GenicSetup handlers will not work.
+
+ - create a layer marker interface unique to your product:
+ 
+    from zope.interface import Interface
+    class IMyProductLayer(Interface):
+        """A layer specific to my product 
+        """
+        
+ - register this with GenericSetup, in a browserlayer.xml file:
+ 
+    <layers>
+        <layer name="my.product" 
+               interface="my.product.interfaces.IMyProductLayer" />
+    </layers>
+    
+ - register visual components in ZCML for this layer, e.g.:
+ 
+    <browser:page
+        name="my-view"
+        for="*"
+        layer=".interfaces.IMyProductLayer"
+        permission="zope.Public"
+        template="my-view.pt"
+        />
+
+No seriously, it works, just look here
+--------------------------------------
+
+In test.zcml we have registered a view, layer-test-view, available only for
+the layer plone.browserlayer.tests.interfaces.IMyProductLayer.
+
+Before the product is installed, we cannot view this:
+
+    >>> from plone.browserlayer.tests.interfaces import IMyProductLayer
+    >>> from plone.browserlayer import utils
+    >>> IMyProductLayer in utils.registered_layers()
+    False
+
+    >>> from Products.Five.testbrowser import Browser
+    >>> browser = Browser()
+    >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
+    Traceback (most recent call last):
+    ...
+    HTTPError: HTTP Error 404: Not Found
+    
+However, if we install the product the interface is registered in the local
+site manager. Here, we use the utility method directly, though we could also
+use GenericSetup.
+    
+    >>> utils.register_layer(IMyProductLayer, name='my.product')
+    >>> IMyProductLayer in utils.registered_layers()
+    True
+    
+And if we now traverse over the site root and render the view, it should be
+there.
+
+    >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
+    >>> print browser.contents
+    A local view
+    
+It is also possible to uninstall a layer:
+
+    >>> IMyProductLayer in utils.registered_layers()
+    True
+    >>> utils.unregister_layer(name='my.product')
+    >>> IMyProductLayer in utils.registered_layers()
+    False
+    
+    >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
+    Traceback (most recent call last):
+    ...
+    HTTPError: HTTP Error 404: Not Found
+    
+GenericSetup support
+--------------------
+
+Most of the time, you will be registering layers using GenericSetup. Here
+is how that looks.
+
+    >>> from Products.CMFCore.utils import getToolByName
+    >>> portal_setup = getToolByName(self.portal, 'portal_setup')
+
+First, we must install the main profile for the product - otherwise, the 
+import handlers will not be found.
+
+    >>> _ = portal_setup.runAllImportStepsFromProfile('profile-plone.browserlayer:default')
+
+We should then be able to install our product's profile. For the purposes of
+this test, the profile is defined in tests/profiles/default/testing and 
+registered in testing.zcml. It has a file called browserlayer.zcml which
+contains:
+
+    <layers>
+        <layer name="plone.browserlayer.tests" 
+               interface="plone.browserlayer.tests.interfaces.IMyProductLayer" />
+    </layers>
+
+Let's import it:
+
+    >>> IMyProductLayer in utils.registered_layers()
+    False
+    >>> _ = portal_setup.runAllImportStepsFromProfile('profile-plone.browserlayer:testing')
+    >>> IMyProductLayer in utils.registered_layers()
+    True
+
+
+
+Future improvements
+-------------------
+
+This package could be integrated a little better with Plone in three ways:
+
+ - The package could ship with Plone. This would make it unnecessary to 
+   declare the product as a dependency and explicitly include it's 
+   configure.zcml.
+
+ - The import- and export steps could be registered as part of Plone's
+   base profile. This would make it unnecessary to install the extension
+   profile just to get these handlers.
+   
+ - The event handler (in layer.py) that applies the browser layer could
+   be merged with that from plone.theme, thus avoiding the need for two
+   pre-traversal hooks.
