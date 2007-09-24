@@ -68,6 +68,12 @@ Before the product is installed, we cannot view this:
     ...
     HTTPError: HTTP Error 404: Not Found
     
+We can view a view registered for the default layer, though:
+
+    >>> browser.open(self.portal.absolute_url() + '/@@standard-test-view')
+    >>> print browser.contents
+    A standard view
+    
 However, if we install the product the interface is registered in the local
 site manager. Here, we use the utility method directly, though we could also
 use GenericSetup.
@@ -82,6 +88,13 @@ there.
     >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
     >>> print browser.contents
     A local view
+    
+Unlike when applying a new skin, layers installed in this way do not override
+skins registered for the default layer.
+
+    >>> browser.open(self.portal.absolute_url() + '/@@standard-test-view')
+    >>> print browser.contents
+    A standard view
     
 It is also possible to uninstall a layer:
 
@@ -128,7 +141,15 @@ Let's import it:
     >>> IMyProductLayer in utils.registered_layers()
     True
 
+And just to prove that everything still works:
 
+    >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
+    >>> print browser.contents
+    A local view
+
+    >>> browser.open(self.portal.absolute_url() + '/@@standard-test-view')
+    >>> print browser.contents
+    A standard view
 
 Future improvements
 -------------------
