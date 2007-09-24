@@ -1,5 +1,5 @@
+from zope.interface import alsoProvides
 from zope.component import getAllUtilitiesRegisteredFor
-from zope.publisher.browser import applySkin
 from plone.browserlayer.interfaces import ILocalBrowserLayerType
 
 def mark_layer(site, event):
@@ -7,4 +7,4 @@ def mark_layer(site, event):
     """
     
     for layer in getAllUtilitiesRegisteredFor(ILocalBrowserLayerType):
-        applySkin(event.request, layer)
+        alsoProvides(event.request, layer)
