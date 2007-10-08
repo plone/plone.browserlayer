@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '1.0b3'
+version = '1.0rc1'
 
 setup(name='plone.browserlayer',
       version=version,
