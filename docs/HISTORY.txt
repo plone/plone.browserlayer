@@ -1,9 +1,19 @@
 Changelog
 =========
 
+1.0 - unreleased
+----------------
+
+* Include README.txt and HISTORY.txt in the package's long description.
+  [wichert]
+
+* Add metadata.xml to the GenericSetup profile. This fixes a deprecation
+  warning for Plone 3.1 and later.
+  [wichert]
+
 1.0b1
 -----
 
-- Initial package structure.
+* Initial package structure.
   [zopeskel]
 
