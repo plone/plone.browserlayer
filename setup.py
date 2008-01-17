@@ -1,15 +1,13 @@
 from setuptools import setup, find_packages
+import os
 
 version = '1.0'
 
 setup(name='plone.browserlayer',
       version=version,
       description="Browser layer management for Zope 2 applications",
-      long_description="""\
-This package makes it possible to register new browser layers, which are 
-automatically applied to the request when the appropriate product is installed.
-""",
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
+      long_description=open("README.txt").read() + "\n" + \
+                       open(os.path.join("docs", "HISTORY.txt")).read(),,
       classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
@@ -28,9 +26,5 @@ automatically applied to the request when the appropriate product is installed.
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
       ],
-      entry_points="""
-      # -*- Entry points: -*-
-      """,
       )
