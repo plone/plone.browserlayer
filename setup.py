@@ -7,7 +7,7 @@ setup(name='plone.browserlayer',
       version=version,
       description="Browser layer management for Zope 2 applications",
       long_description=open("README.txt").read() + "\n" + \
-                       open(os.path.join("docs", "HISTORY.txt")).read(),,
+                       open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
