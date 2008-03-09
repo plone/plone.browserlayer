@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0'
+version = '1.0rc3'
 
 setup(name='plone.browserlayer',
       version=version,
       description="Browser layer management for Zope 2 applications",
-      long_description=open(os.path.join("plone", "browserlayer", "README.txt").read() + "\n" + \
+      long_description=open(os.path.join("plone", "browserlayer", "README.txt")).read() + "\n" + \
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
         "Framework :: Plone",
