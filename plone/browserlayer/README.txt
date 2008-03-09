@@ -1,6 +1,5 @@
-====================
- plone.browserlayer
-====================
+Introduction
+============
 
 This package aims to make it easier to register visual components (e.g. views
 and viewlets) so that they only show up in a Plone site where they have been
@@ -156,10 +155,6 @@ Future improvements
 
 This package could be integrated a little better with Plone in three ways:
 
- - The package could ship with Plone. This would make it unnecessary to 
-   declare the product as a dependency and explicitly include it's 
-   configure.zcml.
-
  - The import- and export steps could be registered as part of Plone's
    base profile. This would make it unnecessary to install the extension
    profile just to get these handlers.
@@ -167,3 +162,4 @@ This package could be integrated a little better with Plone in three ways:
  - The event handler (in layer.py) that applies the browser layer could
    be merged with that from plone.theme, thus avoiding the need for two
    pre-traversal hooks.
+
