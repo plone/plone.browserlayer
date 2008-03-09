@@ -11,34 +11,34 @@ Basic usage
 
 To use this feature, you should:
 
- - declare plone.browserlayer as a dependency, e.g. in setup.py:
+ - declare plone.browserlayer as a dependency, e.g. in setup.py::
  
     install_requires=[
           'plone.browserlayer',
       ],
  
- - ensure that its ZCML is loaded, e.g. with an include from your own package:
+ - ensure that its ZCML is loaded, e.g. with an include from your own package::
  
     <include package="plone.browserlayer" />
     
  - ensure that its extension profile is installed in portal_setup - otherwise 
-    the GenicSetup handlers will not work.
+   the GeniricSetup handlers will not work.
 
- - create a layer marker interface unique to your product:
+ - create a layer marker interface unique to your product::
  
     from zope.interface import Interface
     class IMyProductLayer(Interface):
         """A layer specific to my product 
         """
         
- - register this with GenericSetup, in a browserlayer.xml file:
+ - register this with GenericSetup, in a browserlayer.xml file::
  
     <layers>
         <layer name="my.product" 
                interface="my.product.interfaces.IMyProductLayer" />
     </layers>
     
- - register visual components in ZCML for this layer, e.g.:
+ - register visual components in ZCML for this layer, e.g.::
  
     <browser:page
         name="my-view"
@@ -51,7 +51,7 @@ To use this feature, you should:
 No seriously, it works, just look here
 --------------------------------------
 
-In test.zcml we have registered a view, layer-test-view, available only for
+In testing.zcml we have registered a view, layer-test-view, available only for
 the layer plone.browserlayer.tests.interfaces.IMyProductLayer.
 
 Before the product is installed, we cannot view this:
@@ -75,7 +75,7 @@ We can view a view registered for the default layer, though:
     A standard view
     
 However, if we install the product the interface is registered in the local
-site manager. Here, we use the utility method directly, though we could also
+site manager. Here we use the utility method directly, though we could also
 use GenericSetup.
     
     >>> utils.register_layer(IMyProductLayer, name='my.product')
@@ -90,7 +90,7 @@ there.
     A local view
     
 Unlike when applying a new skin, layers installed in this way do not override
-skins registered for the default layer.
+views registered for the default layer.
 
     >>> browser.open(self.portal.absolute_url() + '/@@standard-test-view')
     >>> print browser.contents
@@ -125,8 +125,8 @@ import handlers will not be found.
 
 We should then be able to install our product's profile. For the purposes of
 this test, the profile is defined in tests/profiles/default/testing and 
-registered in testing.zcml. It has a file called browserlayer.zcml which
-contains:
+registered in testing.zcml. It has a file called browserlayer.xml which
+contains::
 
     <layers>
         <layer name="plone.browserlayer.tests" 

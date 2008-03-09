@@ -33,7 +33,7 @@ def unregister_layer(name, site_manager=None):
     
     existing = queryUtility(ILocalBrowserLayerType, name=name)
     if existing is None:
-        raise KeyError("No brower layer with name %s is registered." % name)
+        raise KeyError("No browser layer with name %s is registered." % name)
     
     if site_manager is None:
         site_manager = getSiteManager()

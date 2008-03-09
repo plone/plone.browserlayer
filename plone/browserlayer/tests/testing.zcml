@@ -6,7 +6,7 @@
 
     <genericsetup:registerProfile
         name="testing"
-        title="Tests for local layer support"
+        title="Tests for local browser layer support"
         directory="profiles/testing"
         description=""
         provides="Products.GenericSetup.interfaces.EXTENSION"

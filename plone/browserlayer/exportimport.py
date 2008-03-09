@@ -103,7 +103,7 @@ def importLayers(context):
             importer.body = body
 
 def exportLayers(context):
-    """Export portlet managers and portlets
+    """Export local browser layers
     """
     sm = getSiteManager(context.getSite())
     if sm is None or not IComponentRegistry.providedBy(sm):
