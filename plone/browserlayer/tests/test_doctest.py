@@ -1,8 +1,6 @@
 import unittest
 import doctest
 
-from zope.interface import Interface
-
 from Products.Five import zcml
 from Products.Five import fiveconfigure
 

@@ -1,10 +1,7 @@
 from zope.interface import implements
-from zope.interface import alsoProvides
-from zope.interface import providedBy
 
 from zope.component import adapts
 from zope.component import getSiteManager
-from zope.component import getUtilitiesFor
 from zope.component import queryMultiAdapter
 
 from zope.component.interfaces import IComponentRegistry
@@ -17,8 +14,6 @@ from Products.GenericSetup.interfaces import IBody
 from Products.GenericSetup.interfaces import ISetupEnviron
 
 from Products.GenericSetup.utils import XMLAdapterBase
-from Products.GenericSetup.utils import exportObjects
-from Products.GenericSetup.utils import importObjects
 from Products.GenericSetup.utils import _getDottedName
 from Products.GenericSetup.utils import _resolveDottedName
 
