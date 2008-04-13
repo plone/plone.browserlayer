@@ -8,6 +8,9 @@ Changelog
   you will no longer need to install this package manually.
   [wichert]
 
+1.0rc3
+------
+
 * Include README.txt and HISTORY.txt in the package's long description.
   [wichert]
 
