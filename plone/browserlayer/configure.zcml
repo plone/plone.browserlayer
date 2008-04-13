@@ -7,8 +7,8 @@
         name="browserlayer"
         title="Package browser layers"
         description="Enables use of skin layers for installed products."
-        handler=""plone.browserlayer.exportimport.importLayers">
-        <dependency step="componentregistry" />
+        handler="plone.browserlayer.exportimport.importLayers">
+        <depends name="componentregistry" />
     </genericsetup:importStep>
 
     <genericsetup:exportStep
