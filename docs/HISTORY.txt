@@ -4,6 +4,9 @@ Changelog
 1.0 - unreleased
 ----------------
 
+1.0rc4
+------
+
 - Register the GenericSetup import and export steps using zcml. This means
   you will no longer need to install this package manually.
   [wichert]
