@@ -145,16 +145,3 @@ And just to prove that everything still works:
     >>> print browser.contents
     A standard view
 
-Future improvements
--------------------
-
-This package could be integrated a little better with Plone in three ways:
-
- - The import- and export steps could be registered as part of Plone's
-   base profile. This would make it unnecessary to install the extension
-   profile just to get these handlers.
-   
- - The event handler (in layer.py) that applies the browser layer could
-   be merged with that from plone.theme, thus avoiding the need for two
-   pre-traversal hooks.
-
