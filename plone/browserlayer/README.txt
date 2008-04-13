@@ -117,12 +117,7 @@ is how that looks.
     >>> from Products.CMFCore.utils import getToolByName
     >>> portal_setup = getToolByName(self.portal, 'portal_setup')
 
-First, we must install the main profile for the product - otherwise, the 
-import handlers will not be found.
-
-    >>> _ = portal_setup.runAllImportStepsFromProfile('profile-plone.browserlayer:default')
-
-We should then be able to install our product's profile. For the purposes of
+We should be able to install our product's profile. For the purposes of
 this test, the profile is defined in tests/profiles/default/testing and 
 registered in testing.zcml. It has a file called browserlayer.xml which
 contains::
