@@ -5,6 +5,8 @@ This package aims to make it easier to register visual components (e.g. views
 and viewlets) so that they only show up in a Plone site where they have been
 explicitly installed.
 
+It requires GenericSetup 1.4 later.
+
 Basic usage
 -----------
 

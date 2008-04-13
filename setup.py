@@ -24,5 +24,6 @@ setup(name='plone.browserlayer',
       zip_safe=False,
       install_requires=[
           'setuptools',
+#         'Products.GenericSetup>=1.4',
       ],
       )
