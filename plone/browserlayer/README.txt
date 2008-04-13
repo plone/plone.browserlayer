@@ -20,9 +20,6 @@ To use this feature, you should:
  
     <include package="plone.browserlayer" />
     
- - ensure that its extension profile is installed in portal_setup - otherwise 
-   the GeniricSetup handlers will not work.
-
  - create a layer marker interface unique to your product::
  
     from zope.interface import Interface
