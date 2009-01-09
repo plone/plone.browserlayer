@@ -1,8 +1,14 @@
 Changelog
 =========
 
-1.0.0 - April 20th 2008
------------------------
+1.1.1 - unreleased
+------------------
+
+- Specify package dependencies.
+  [hannosch]
+
+1.0.0 - 2008-04-20
+------------------
 
 - Unchanged from 1.0rc4
 
