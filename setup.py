@@ -21,6 +21,11 @@ setup(name='plone.browserlayer',
       namespace_packages=['plone'],
       include_package_data=True,
       zip_safe=False,
+      extras_require=dict(
+        test=[
+            'Products.PloneTestCase',
+        ]
+      ),
       install_requires=[
           'setuptools',
           'zope.component',
@@ -29,7 +34,6 @@ setup(name='plone.browserlayer',
           'Plone',
           'Products.CMFCore',
           'Products.GenericSetup>=1.4',
-          'Products.PloneTestCase',
           # 'Zope2',
       ],
       )
