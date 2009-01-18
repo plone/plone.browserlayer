@@ -19,11 +19,11 @@
         />
 
     <subscriber
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot
+        for="Products.CMFCore.interfaces.ISiteRoot
              zope.app.publication.interfaces.IBeforeTraverseEvent"
         handler=".layer.mark_layer"
         />
-    
+
     <adapter
         factory=".exportimport.BrowserLayerXMLAdapter"
         name="plone.browserlayer" />
