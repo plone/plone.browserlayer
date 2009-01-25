@@ -4,6 +4,9 @@ Changelog
 2.0 - unreleased
 ----------------
 
+- Clarified license and copyright.
+  [hannosch]
+
 - Register ourselves for the more generic ISiteRoot from CMFCore and not
   IPloneSiteRoot.
   [hannosch]
