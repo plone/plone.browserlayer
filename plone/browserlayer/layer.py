@@ -1,3 +1,4 @@
+from zope.interface import Interface
 from zope.interface import directlyProvidedBy, directlyProvides
 from zope.component import getAllUtilitiesRegisteredFor
 from plone.browserlayer.interfaces import ILocalBrowserLayerType
@@ -7,6 +8,9 @@ def mark_layer(site, event):
     """
     request = event.request
     layers = getAllUtilitiesRegisteredFor(ILocalBrowserLayerType)
+    # Filter out bad entries, for example stale utility registrations
+    # from removed packages.
+    layers = [layer for layer in layers if issubclass(layer, Interface)]
     ifaces = list(layers) + list(directlyProvidedBy(request))
         
     # Since we allow multiple markers here, we can't use 

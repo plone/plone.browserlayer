@@ -4,6 +4,10 @@ Changelog
 2.0 - unreleased
 ----------------
 
+- Be more robust against broken layer registrations. These can occur when
+  packages with registered layers are removed.
+  [wichert]
+
 - Clarified license and copyright.
   [hannosch]
 
