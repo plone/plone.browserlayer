@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.0 - unreleased
-----------------
+1.0.1 - 2009-09-09
+------------------
 
 - Be more robust against broken layer registrations. These can occur when
   packages with registered layers are removed.
