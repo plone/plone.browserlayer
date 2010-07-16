@@ -1,25 +1,25 @@
 from setuptools import setup, find_packages
-import os
 
-version = '1.0.2'
+version = '1.1'
 
 setup(name='plone.browserlayer',
       version=version,
       description="Browser layer management for Zope 2 applications",
-      long_description=open(os.path.join("plone", "browserlayer", "README.txt")).read() + "\n" + \
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=open("README.txt").read() + "\n" + \
+                       open("CHANGES.txt").read(),
       classifiers=[
-        "Environment :: Web Environment",
-        "Framework :: Plone",
-        "License :: OSI Approved :: GNU General Public License (GPL)",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python",
+          "Environment :: Web Environment",
+          "Framework :: Plone",
+          "Framework :: Zope2",
+          "License :: OSI Approved :: GNU General Public License (GPL)",
+          "Operating System :: OS Independent",
+          "Programming Language :: Python",
         ],
       keywords='plone browser layer',
       author='Plone Foundation',
       author_email='plone-developers@lists.sourceforge.net',
-      url='http://plone.org',
-      license='GPL',
+      url='http://pypi.python.org/pypi/plone.browserlayer',
+      license='GPL version 2',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['plone'],
       include_package_data=True,
@@ -36,6 +36,6 @@ setup(name='plone.browserlayer',
           'zope.app.publication',
           'Products.CMFCore',
           'Products.GenericSetup>=1.4',
-          # 'Zope2',
+          'Zope2',
       ],
       )
