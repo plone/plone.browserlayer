@@ -6,6 +6,10 @@ from plone.browserlayer.interfaces import ILocalBrowserLayerType
 def mark_layer(site, event):
     """Mark the request with all installed layers.
     """
+    if getattr(event.request, "_plonebrowserlayer_", False):
+        return
+    event.request._plonebrowserlayer_ = True
+    
     request = event.request
     layers = getAllUtilitiesRegisteredFor(ILocalBrowserLayerType)
     # Filter out bad entries, for example stale utility registrations

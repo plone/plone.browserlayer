@@ -4,6 +4,9 @@ Changelog
 2.0.1 - unreleased
 ------------------
 
+- Make sure the layers don't get applied twice if the site is traversed more
+  than once (such as in a vhosting URL).
+  [davisagli]
 
 2.0 - 2010-07-18
 ----------------
