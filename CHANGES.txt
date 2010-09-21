@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.1 - unreleased
+2.0.1 - 2010-09-21
 ------------------
 
 - Make sure the layers don't get applied twice if the site is traversed more
