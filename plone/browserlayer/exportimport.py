@@ -17,18 +17,20 @@ from Products.GenericSetup.utils import XMLAdapterBase
 from Products.GenericSetup.utils import _getDottedName
 from Products.GenericSetup.utils import _resolveDottedName
 
+
 def dummyGetId():
     return ''
+
 
 class BrowserLayerXMLAdapter(XMLAdapterBase):
     """Im- and exporter for local browser layers
     """
     implements(IBody)
     adapts(IComponentRegistry, ISetupEnviron)
-    
+
     name = 'browserlayer'
     _LOGGER_ID = 'browserlayer'
-    
+
     def _exportNode(self):
         # hack around an issue where _getObjectNode expects to have the context
         # a meta_type and a getId method, which isn't the case for a component
@@ -54,7 +56,7 @@ class BrowserLayerXMLAdapter(XMLAdapterBase):
         self._initLayers(node)
 
     def _purgeLayers(self):
-        registeredLayers = [r.name for r in self.context.registeredUtilities() 
+        registeredLayers = [r.name for r in self.context.registeredUtilities()
                             if r.provided == ILocalBrowserLayerType]
         for name in registeredLayers:
             unregister_layer(name, site_manager=self.context)
@@ -65,20 +67,21 @@ class BrowserLayerXMLAdapter(XMLAdapterBase):
                 name = child.getAttribute('name')
                 interface = _resolveDottedName(child.getAttribute('interface'))
                 register_layer(interface, name, site_manager=self.context)
-    
+
     def _extractLayers(self):
         fragment = self._doc.createDocumentFragment()
-        
-        registrations = [r for r in self.context.registeredUtilities() 
+
+        registrations = [r for r in self.context.registeredUtilities()
                             if r.provided == ILocalBrowserLayerType]
-                            
+
         for r in registrations:
             child = self._doc.createElement('layer')
             child.setAttribute('name', r.name)
             child.setAttribute('interface', _getDottedName(r.component))
             fragment.appendChild(child)
-            
+
         return fragment
+
 
 def importLayers(context):
     """Import local browser layers
@@ -96,6 +99,7 @@ def importLayers(context):
         if body is not None:
             importer.filename = filename # for error reporting
             importer.body = body
+
 
 def exportLayers(context):
     """Export local browser layers

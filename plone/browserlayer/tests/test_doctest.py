@@ -13,7 +13,9 @@ import plone.browserlayer.tests
 
 ptc.setupPloneSite()
 
+
 class PloneBrowserLayerLayer(PloneSite):
+
     @classmethod
     def setUp(cls):
         fiveconfigure.debug_mode = True
@@ -25,10 +27,11 @@ class PloneBrowserLayerLayer(PloneSite):
     @classmethod
     def tearDown(cls):
         pass
-    
+
 
 class PloneBrowserLayerTestCase(ptc.FunctionalTestCase):
     layer = PloneBrowserLayerLayer
+
 
 def test_suite():
     return unittest.TestSuite([
@@ -38,7 +41,7 @@ def test_suite():
             'README.txt', package='plone.browserlayer',
             test_class=PloneBrowserLayerTestCase,
             optionflags=doctest.REPORT_ONLY_FIRST_FAILURE | doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS),
-            
+
         ])
 
 if __name__ == '__main__':
