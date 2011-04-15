@@ -1,8 +1,12 @@
 Changelog
 =========
 
+
 2.0.2 - unreleased
 ------------------
+
+- Add MANIFEST.in
+  [WouterVH]
 
 
 2.0.1 - 2010-09-21
@@ -12,6 +16,7 @@ Changelog
   than once (such as in a vhosting URL).
   [davisagli]
 
+
 2.0 - 2010-07-18
 ----------------
 
@@ -20,6 +25,7 @@ Changelog
 
 - Package metadata cleanup, require Zope2 distribution.
   [hannosch]
+
 
 1.0.1 - 2009-09-09
 ------------------
@@ -41,31 +47,34 @@ Changelog
 - Specify package dependencies.
   [hannosch]
 
+
 1.0.0 - 2008-04-20
 ------------------
 
 - Unchanged from 1.0rc4
 
-1.0rc4
-------
 
-- Register the GenericSetup import and export steps using zcml. This means
-  you will no longer need to install this package manually.
+1.0rc4 - 2008-04-13
+-------------------
+
+- Register the GenericSetup import and export steps using zcml. This means you
+  will no longer need to install this package manually.
   [wichert]
 
-1.0rc3
-------
 
-* Include README.txt and HISTORY.txt in the package's long description.
+1.0rc3 - 2008-03-09
+-------------------
+
+- Include README.txt and HISTORY.txt in the package's long description.
   [wichert]
 
-* Add metadata.xml to the GenericSetup profile. This fixes a deprecation
+- Add metadata.xml to the GenericSetup profile. This fixes a deprecation
   warning for Plone 3.1 and later.
   [wichert]
 
-1.0b1
------
 
-* Initial package structure.
+1.0b1 - 2007-09-23
+------------------
+
+- Initial package structure.
   [zopeskel]
-
