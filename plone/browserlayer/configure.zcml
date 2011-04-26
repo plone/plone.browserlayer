@@ -20,7 +20,7 @@
 
     <subscriber
         for="Products.CMFCore.interfaces.ISiteRoot
-             zope.app.publication.interfaces.IBeforeTraverseEvent"
+             zope.traversing.interfaces.IBeforeTraverseEvent"
         handler=".layer.mark_layer"
         />
 
