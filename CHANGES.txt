@@ -1,9 +1,8 @@
 Changelog
 =========
 
-
-2.0.2 - unreleased
-------------------
+2.1 - 2011-05-12
+----------------
 
 - Update import of BeforeTraverseEvent to come from zope.traversing instead
   of zope.app.publication.
