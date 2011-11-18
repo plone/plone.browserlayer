@@ -4,6 +4,9 @@ Changelog
 2.1.1 - unreleased
 ------------------
 
+- Added uninstall support to browserlayer.xml with the 'remove' option.
+  [maurits]
+
 
 2.1 - 2011-05-12
 ----------------

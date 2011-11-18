@@ -69,7 +69,7 @@ is how that looks.
     >>> portal_setup = getToolByName(self.portal, 'portal_setup')
 
 We should be able to install our product's profile. For the purposes of
-this test, the profile is defined in tests/profiles/default/testing and 
+this test, the profile is defined in tests/profiles/testing and 
 registered in testing.zcml. It has a file called browserlayer.xml which
 contains::
 
@@ -91,6 +91,43 @@ And just to prove that everything still works:
     >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
     >>> print browser.contents
     A local view
+
+    >>> browser.open(self.portal.absolute_url() + '/@@standard-test-view')
+    >>> print browser.contents
+    A standard view
+
+We now also have uninstall support.  For the purposes of
+this test, the profile is defined in tests/profiles/uninstall and 
+registered in testing.zcml. It has a file called browserlayer.xml which
+contains::
+
+    <layers>
+      <layer name="plone.browserlayer.tests"
+             remove="true" />
+    </layers>
+
+Note that the contents of the 'remove' option do not actually matter; as long
+as the option is not empty, we regard it as a request to remove the
+layer.  This is how most GenericSetup importers treat the 'remove' option.
+
+Also note that you do not need to specify the interface (though you
+are allowed to); the name is enough.
+
+Anyway, let's import it:
+
+    >>> IMyProductLayer in utils.registered_layers()
+    True
+    >>> _ = portal_setup.runAllImportStepsFromProfile('profile-plone.browserlayer:uninstall')
+    >>> IMyProductLayer in utils.registered_layers()
+    False
+
+And just to prove that everything still works (or fails to be found)
+as expected:
+
+    >>> browser.open(self.portal.absolute_url() + '/@@layer-test-view')
+    Traceback (most recent call last):
+    ...
+    HTTPError: HTTP Error 404: Not Found
 
     >>> browser.open(self.portal.absolute_url() + '/@@standard-test-view')
     >>> print browser.contents

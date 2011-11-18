@@ -12,6 +12,14 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="Tests for uninstalling a local browser layer"
+        directory="profiles/uninstall"
+        description=""
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
     <browser:page
         name="layer-test-view"
         for="*"
