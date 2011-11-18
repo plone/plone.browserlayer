@@ -95,12 +95,13 @@ def importLayers(context):
         logger.info("Can not register components - no site manager found.")
         return
 
-    importer = queryMultiAdapter((sm, context), IBody, name=u'plone.browserlayer')
+    importer = queryMultiAdapter((sm, context), IBody,
+                                 name=u'plone.browserlayer')
     if importer is not None:
         filename = '%s%s' % (importer.name, importer.suffix)
         body = context.readDataFile(filename)
         if body is not None:
-            importer.filename = filename # for error reporting
+            importer.filename = filename  # for error reporting
             importer.body = body
 
 
@@ -113,7 +114,8 @@ def exportLayers(context):
         logger.info("Can not register components - no site manager found.")
         return
 
-    exporter = queryMultiAdapter((sm, context), IBody, name=u'plone.browserlayer')
+    exporter = queryMultiAdapter((sm, context), IBody,
+                                 name=u'plone.browserlayer')
     if exporter is not None:
         filename = '%s%s' % (exporter.name, exporter.suffix)
         body = exporter.body
