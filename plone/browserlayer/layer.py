@@ -10,7 +10,7 @@ def mark_layer(site, event):
     if getattr(event.request, "_plonebrowserlayer_", False):
         return
     event.request._plonebrowserlayer_ = True
-    
+
     request = event.request
     layers = getAllUtilitiesRegisteredFor(ILocalBrowserLayerType)
     # Filter out bad entries, for example stale utility registrations

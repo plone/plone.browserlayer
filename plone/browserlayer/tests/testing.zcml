@@ -19,12 +19,12 @@
         template="local.pt"
         permission="zope.Public"
         />
-        
+
     <browser:page
         name="standard-test-view"
         for="*"
         template="standard.pt"
         permission="zope.Public"
         />
-    
+
 </configure>
