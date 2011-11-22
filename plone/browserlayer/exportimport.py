@@ -77,6 +77,8 @@ class BrowserLayerXMLAdapter(XMLAdapterBase):
         registrations = [r for r in self.context.registeredUtilities()
                             if r.provided == ILocalBrowserLayerType]
 
+        registrations.sort()
+
         for r in registrations:
             child = self._doc.createElement('layer')
             child.setAttribute('name', r.name)

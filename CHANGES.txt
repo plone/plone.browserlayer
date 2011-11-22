@@ -7,6 +7,10 @@ Changelog
 - Added uninstall support to browserlayer.xml with the 'remove' option.
   [maurits]
 
+- GS export xml is now repeatable. Before two consecutive exports could
+  yield differently ordered results.
+  [do3cc]
+
 
 2.1 - 2011-05-12
 ----------------
