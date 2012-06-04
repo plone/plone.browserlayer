@@ -66,7 +66,10 @@ class BrowserLayerXMLAdapter(XMLAdapterBase):
             if child.nodeName.lower() == 'layer':
                 name = child.getAttribute('name')
                 if child.getAttribute('remove'):
-                    unregister_layer(name, site_manager=self.context)
+                    try:
+                        unregister_layer(name, site_manager=self.context)
+                    except KeyError, e:
+                        self._logger.info(e)
                     continue
                 interface = _resolveDottedName(child.getAttribute('interface'))
                 register_layer(interface, name, site_manager=self.context)
