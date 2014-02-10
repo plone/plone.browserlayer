@@ -1,1 +1,1 @@
-A standard view
+<tal:block define="dummy python:request.response.setHeader('Content-Type', 'text/plain')" />A standard view
