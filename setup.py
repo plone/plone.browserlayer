@@ -14,7 +14,7 @@ setup(name='plone.browserlayer',
           "License :: OSI Approved :: GNU General Public License (GPL)",
           "Operating System :: OS Independent",
           "Programming Language :: Python",
-        ],
+      ],
       keywords='plone browser layer',
       author='Plone Foundation',
       author_email='plone-developers@lists.sourceforge.net',
@@ -25,9 +25,9 @@ setup(name='plone.browserlayer',
       include_package_data=True,
       zip_safe=False,
       extras_require=dict(
-        test=[
-            'Products.PloneTestCase',
-        ]
+          test=[
+             'plone.app.testing',
+          ]
       ),
       install_requires=[
           'setuptools',
