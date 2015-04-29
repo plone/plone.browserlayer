@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1.4 (unreleased)
+2.1.4 (2015-04-29)
 ------------------
 
 - Move tests to plone.app.testing.
