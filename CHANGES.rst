@@ -4,7 +4,8 @@ Changelog
 2.1.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Rerelease for clarity, because 2.1.4 got released twice.
+  [maurits]
 
 
 2.1.4 (2015-04-29)
