@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from plone.app.testing import PloneSandboxLayer
 from plone.app.testing.layers import FunctionalTesting
 
@@ -18,4 +17,5 @@ PLONEBROWSERLAYER_FIXTURE = PloneBrowserlayerLayer()
 
 PLONEBROWSERLAYER_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(PLONEBROWSERLAYER_FIXTURE,),
-    name="PloneBrowserlayer:Functional")
+    name="PloneBrowserlayer:Functional"
+)
