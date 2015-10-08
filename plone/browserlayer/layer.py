@@ -1,7 +1,9 @@
-from zope.interface import Interface
-from zope.interface import directlyProvidedBy, directlyProvides
-from zope.component import getAllUtilitiesRegisteredFor
+# -*- coding: utf-8 -*-
 from plone.browserlayer.interfaces import ILocalBrowserLayerType
+from zope.component import getAllUtilitiesRegisteredFor
+from zope.interface import directlyProvidedBy
+from zope.interface import directlyProvides
+from zope.interface import Interface
 
 
 def mark_layer(site, event):

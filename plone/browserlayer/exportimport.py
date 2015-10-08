@@ -1,32 +1,28 @@
-from zope.interface import implements
-
-from zope.component import adapts
-from zope.component import getSiteManager
-from zope.component import queryMultiAdapter
-
-from zope.component.interfaces import IComponentRegistry
-
+# -*- coding: utf-8 -*-
 from plone.browserlayer.interfaces import ILocalBrowserLayerType
 from plone.browserlayer.utils import register_layer
 from plone.browserlayer.utils import unregister_layer
-
 from Products.GenericSetup.interfaces import IBody
 from Products.GenericSetup.interfaces import ISetupEnviron
-
-from Products.GenericSetup.utils import XMLAdapterBase
 from Products.GenericSetup.utils import _getDottedName
 from Products.GenericSetup.utils import _resolveDottedName
+from Products.GenericSetup.utils import XMLAdapterBase
+from zope.component import adapter
+from zope.component import getSiteManager
+from zope.component import queryMultiAdapter
+from zope.component.interfaces import IComponentRegistry
+from zope.interface import implementer
 
 
 def dummyGetId():
     return ''
 
 
+@implementer(IBody)
+@adapter(IComponentRegistry, ISetupEnviron)
 class BrowserLayerXMLAdapter(XMLAdapterBase):
     """Im- and exporter for local browser layers
     """
-    implements(IBody)
-    adapts(IComponentRegistry, ISetupEnviron)
 
     name = 'browserlayer'
     _LOGGER_ID = 'browserlayer'
@@ -78,7 +74,7 @@ class BrowserLayerXMLAdapter(XMLAdapterBase):
         fragment = self._doc.createDocumentFragment()
 
         registrations = [r for r in self.context.registeredUtilities()
-                            if r.provided == ILocalBrowserLayerType]
+                         if r.provided == ILocalBrowserLayerType]
 
         registrations.sort()
 

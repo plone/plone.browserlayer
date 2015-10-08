@@ -1,10 +1,9 @@
-from zope.interface import alsoProvides
-
-from zope.component import queryUtility
-from zope.component import getSiteManager
-from zope.component import getAllUtilitiesRegisteredFor
-
+# -*- coding: utf-8 -*-
 from plone.browserlayer.interfaces import ILocalBrowserLayerType
+from zope.component import getAllUtilitiesRegisteredFor
+from zope.component import getSiteManager
+from zope.component import queryUtility
+from zope.interface import alsoProvides
 
 
 def register_layer(layer, name, site_manager=None):
