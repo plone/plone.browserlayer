@@ -4,6 +4,8 @@ Changelog
 2.1.6 (unreleased)
 ------------------
 
+Fixes:
+
 - Minor cleanup in order to follow plone code style conventions.
   [jensens]
 
