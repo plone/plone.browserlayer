@@ -14,7 +14,6 @@ Before the product is installed, we cannot view this:
     >>> from plone.testing import z2
 
     >>> from plone.testing.z2 import Browser
-    >>> from Testing.ZopeTestCase import user_password
     >>> with z2.zopeApp() as app:
     ...     browser = Browser(app)
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
