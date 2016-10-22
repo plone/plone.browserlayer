@@ -10,7 +10,8 @@ New:
 
 Fixes:
 
-- *add item here*
+- Removed ZopeTestCase.  We were importing from it but not using it...
+  [ivanteoh, maurits]
 
 
 2.1.6 (2015-10-27)
