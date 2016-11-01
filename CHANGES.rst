@@ -4,10 +4,6 @@ Changelog
 2.1.7 (unreleased)
 ------------------
 
-New:
-
-- *add item here*
-
 Fixes:
 
 - Removed ZopeTestCase.  We were importing from it but not using it...
