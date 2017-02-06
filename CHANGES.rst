@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1.8 (unreleased)
+2.2.0 (unreleased)
 ------------------
 
 Breaking changes:
@@ -14,7 +14,7 @@ New features:
 
 Bug fixes:
 
-- *add item here*
+- Fixed test when using Zope 4.  [maurits]
 
 
 2.1.7 (2016-11-01)

@@ -14,8 +14,7 @@ Before the product is installed, we cannot view this:
     >>> from plone.testing import z2
 
     >>> from plone.testing.z2 import Browser
-    >>> with z2.zopeApp() as app:
-    ...     browser = Browser(app)
+    >>> browser = Browser(layer['app'])
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     Traceback (most recent call last):
     ...
@@ -34,6 +33,8 @@ use GenericSetup.
     >>> utils.register_layer(IMyProductLayer, name='my.product')
     >>> IMyProductLayer in utils.registered_layers()
     True
+    >>> import transaction;
+    >>> transaction.commit()
 
 And if we now traverse over the site root and render the view, it should be
 there.
@@ -56,7 +57,7 @@ It is also possible to uninstall a layer:
     >>> utils.unregister_layer(name='my.product')
     >>> IMyProductLayer in utils.registered_layers()
     False
-
+    >>> transaction.commit()
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     Traceback (most recent call last):
     ...
