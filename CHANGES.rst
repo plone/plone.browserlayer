@@ -4,14 +4,6 @@ Changelog
 2.2.0 (unreleased)
 ------------------
 
-Breaking changes:
-
-- *add item here*
-
-New features:
-
-- *add item here*
-
 Bug fixes:
 
 - Fixed test when using Zope 4.  [maurits]
