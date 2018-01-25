@@ -64,7 +64,7 @@ class BrowserLayerXMLAdapter(XMLAdapterBase):
                 if child.getAttribute('remove'):
                     try:
                         unregister_layer(name, site_manager=self.context)
-                    except KeyError, e:
+                    except KeyError as e:
                         self._logger.info(e)
                     continue
                 interface = _resolveDottedName(child.getAttribute('interface'))
