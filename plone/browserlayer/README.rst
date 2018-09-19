@@ -18,12 +18,12 @@ Before the product is installed, we cannot view this:
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     Traceback (most recent call last):
     ...
-    HTTPError: HTTP Error 404: Not Found
+    urllib.error.HTTPError: HTTP Error 404: Not Found
 
 We can view a view registered for the default layer, though:
 
     >>> browser.open(layer['portal'].absolute_url() + '/@@standard-test-view')
-    >>> print browser.contents
+    >>> print(browser.contents)
     A standard view
 
 However, if we install the product the interface is registered in the local
@@ -40,14 +40,14 @@ And if we now traverse over the site root and render the view, it should be
 there.
 
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
-    >>> print browser.contents
+    >>> print(browser.contents)
     A local view
 
 Unlike when applying a new skin, layers installed in this way do not override
 views registered for the default layer.
 
     >>> browser.open(layer['portal'].absolute_url() + '/@@standard-test-view')
-    >>> print browser.contents
+    >>> print(browser.contents)
     A standard view
 
 It is also possible to uninstall a layer:
@@ -61,7 +61,7 @@ It is also possible to uninstall a layer:
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     Traceback (most recent call last):
     ...
-    HTTPError: HTTP Error 404: Not Found
+    urllib.error.HTTPError: HTTP Error 404: Not Found
 
 GenericSetup support
 --------------------
@@ -102,11 +102,11 @@ the next three lines are used because of this bug :https://dev.plone.org/ticket/
 And just to prove that everything still works:
 
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
-    >>> print browser.contents
+    >>> print(browser.contents)
     A local view
 
     >>> browser.open(layer['portal'].absolute_url() + '/@@standard-test-view')
-    >>> print browser.contents
+    >>> print(browser.contents)
     A standard view
 
 We now also have uninstall support.  For the purposes of
@@ -148,8 +148,8 @@ as expected:
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     Traceback (most recent call last):
     ...
-    HTTPError: HTTP Error 404: Not Found
+    urllib.error.HTTPError: HTTP Error 404: Not Found
 
     >>> browser.open(layer['portal'].absolute_url() + '/@@standard-test-view')
-    >>> print browser.contents
+    >>> print(browser.contents)
     A standard view
