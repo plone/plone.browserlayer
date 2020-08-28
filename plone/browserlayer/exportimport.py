@@ -10,8 +10,8 @@ from Products.GenericSetup.utils import XMLAdapterBase
 from zope.component import adapter
 from zope.component import getSiteManager
 from zope.component import queryMultiAdapter
-from zope.component.interfaces import IComponentRegistry
 from zope.interface import implementer
+from zope.interface.interfaces import IComponentRegistry
 
 
 def dummyGetId():
