@@ -8,6 +8,16 @@ Changelog
 
 .. towncrier release notes start
 
+2.2.4 (2020-09-07)
+------------------
+
+Bug fixes:
+
+
+- Fixed deprecation warning for ``zope.component.interfaces.IComponentRegistry``.
+  [maurits] (#3130)
+
+
 2.2.3 (2020-04-20)
 ------------------
 
