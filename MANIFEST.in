@@ -3,6 +3,7 @@ include *.rst
 recursive-include docs *
 recursive-include plone *
 
-global-exclude *pycinclude pyproject.toml
+global-exclude *pycinclude *.pyc *.pyo
+exclude pyproject.toml
 recursive-exclude news *
 exclude news
