@@ -11,14 +11,18 @@ Before the product is installed, we cannot view this:
     >>> IMyProductLayer in utils.registered_layers()
     False
 
-    >>> from plone.testing import z2
-
-    >>> from plone.testing.z2 import Browser
+    >>> try:
+    ...     from plone.testing.zope import Browser
+    ... except ImportError:
+    ...     from plone.testing.z2 import Browser
     >>> browser = Browser(layer['app'])
+    >>> browser.handleErrors = False
+    >>> browser.raiseHttpErrors = False
+    >>> browser.open(layer['portal'].absolute_url())
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     Traceback (most recent call last):
     ...
-    urllib.error.HTTPError: HTTP Error 404: Not Found
+    zExceptions.NotFound: http://nohost/plone/@@layer-test-view
 
 We can view a view registered for the default layer, though:
 
@@ -61,7 +65,7 @@ It is also possible to uninstall a layer:
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     Traceback (most recent call last):
     ...
-    urllib.error.HTTPError: HTTP Error 404: Not Found
+    zExceptions.NotFound: http://nohost/plone/@@layer-test-view
 
 GenericSetup support
 --------------------
@@ -148,7 +152,7 @@ as expected:
     >>> browser.open(layer['portal'].absolute_url() + '/@@layer-test-view')
     Traceback (most recent call last):
     ...
-    urllib.error.HTTPError: HTTP Error 404: Not Found
+    zExceptions.NotFound: http://nohost/plone/@@layer-test-view
 
     >>> browser.open(layer['portal'].absolute_url() + '/@@standard-test-view')
     >>> print(browser.contents)
