@@ -11,10 +11,7 @@ Before the product is installed, we cannot view this:
     >>> IMyProductLayer in utils.registered_layers()
     False
 
-    >>> try:
-    ...     from plone.testing.zope import Browser
-    ... except ImportError:
-    ...     from plone.testing.z2 import Browser
+    >>> from plone.testing.zope import Browser
     >>> browser = Browser(layer['app'])
     >>> browser.handleErrors = False
     >>> browser.raiseHttpErrors = False
