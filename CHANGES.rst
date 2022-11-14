@@ -8,6 +8,22 @@ Changelog
 
 .. towncrier release notes start
 
+3.0.0 (2022-11-14)
+------------------
+
+Breaking changes:
+
+
+- Drop support for Plone 5 and Python 2.  [maurits] (#600)
+
+
+Bug fixes:
+
+
+- Fix 'KeyError: file' in browser tests on Python 3.11.
+  [maurits] (#3663)
+
+
 2.2.4 (2020-09-07)
 ------------------
 
