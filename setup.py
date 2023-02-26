@@ -33,7 +33,14 @@ setup(
     namespace_packages=["plone"],
     include_package_data=True,
     zip_safe=False,
-    extras_require=dict(test=["plone.app.testing"]),
+    extras_require=dict(
+        test=[
+            "plone.app.testing",
+            "plone.testing",
+            "transaction",
+            "zope.event",
+        ]
+    ),
     install_requires=[
         "setuptools",
         "zope.component",
