@@ -6,8 +6,7 @@ from zope.interface import Interface
 
 
 def mark_layer(site, event):
-    """Mark the request with all installed layers.
-    """
+    """Mark the request with all installed layers."""
     if getattr(event.request, "_plonebrowserlayer_", False):
         return
     event.request._plonebrowserlayer_ = True

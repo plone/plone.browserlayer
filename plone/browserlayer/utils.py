@@ -21,9 +21,9 @@ def register_layer(layer, name, site_manager=None):
     if not ILocalBrowserLayerType.providedBy(layer):
         alsoProvides(layer, ILocalBrowserLayerType)
 
-    site_manager.registerUtility(component=layer,
-                                 provided=ILocalBrowserLayerType,
-                                 name=name)
+    site_manager.registerUtility(
+        component=layer, provided=ILocalBrowserLayerType, name=name
+    )
 
 
 def unregister_layer(name, site_manager=None):
@@ -38,12 +38,11 @@ def unregister_layer(name, site_manager=None):
     if site_manager is None:
         site_manager = getSiteManager()
 
-    site_manager.unregisterUtility(component=existing,
-                                   provided=ILocalBrowserLayerType,
-                                   name=name)
+    site_manager.unregisterUtility(
+        component=existing, provided=ILocalBrowserLayerType, name=name
+    )
 
 
 def registered_layers():
-    """Return all currently registered layers
-    """
+    """Return all currently registered layers"""
     return getAllUtilitiesRegisteredFor(ILocalBrowserLayerType)

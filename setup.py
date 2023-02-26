@@ -1,17 +1,14 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = '3.0.1.dev0'
+
+version = "3.0.1.dev0"
 
 setup(
-    name='plone.browserlayer',
+    name="plone.browserlayer",
     version=version,
     description="Browser layer management for Zope applications",
-    long_description=(
-        open("README.rst").read() +
-        "\n" +
-        open("CHANGES.rst").read()
-    ),
+    long_description=(open("README.rst").read() + "\n" + open("CHANGES.rst").read()),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
@@ -27,27 +24,23 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
     ],
-    keywords='plone browser layer',
-    author='Plone Foundation',
-    author_email='plone-developers@lists.sourceforge.net',
-    url='https://github.com/plone/plone.browserlayer',
-    license='GPL version 2',
+    keywords="plone browser layer",
+    author="Plone Foundation",
+    author_email="plone-developers@lists.sourceforge.net",
+    url="https://github.com/plone/plone.browserlayer",
+    license="GPL version 2",
     packages=find_packages(),
-    namespace_packages=['plone'],
+    namespace_packages=["plone"],
     include_package_data=True,
     zip_safe=False,
-    extras_require=dict(
-        test=[
-           'plone.app.testing',
-        ]
-    ),
+    extras_require=dict(test=["plone.app.testing"]),
     install_requires=[
-        'setuptools',
-        'zope.component',
-        'zope.interface',
-        'zope.traversing >= 3.9.0',
-        'Products.CMFCore',
-        'Products.GenericSetup>=1.4',
-        'Zope',
+        "setuptools",
+        "zope.component",
+        "zope.interface",
+        "zope.traversing >= 3.9.0",
+        "Products.CMFCore",
+        "Products.GenericSetup>=1.4",
+        "Zope",
     ],
 )
