@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from plone.browserlayer.testing import PLONEBROWSERLAYER_FUNCTIONAL_TESTING
 from plone.testing import layered
 

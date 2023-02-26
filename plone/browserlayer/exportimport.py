@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from plone.browserlayer.interfaces import ILocalBrowserLayerType
 from plone.browserlayer.utils import register_layer
 from plone.browserlayer.utils import unregister_layer
@@ -97,9 +96,9 @@ def importLayers(context):
         return
 
     importer = queryMultiAdapter((sm, context), IBody,
-                                 name=u'plone.browserlayer')
+                                 name='plone.browserlayer')
     if importer is not None:
-        filename = '%s%s' % (importer.name, importer.suffix)
+        filename = f'{importer.name}{importer.suffix}'
         body = context.readDataFile(filename)
         if body is not None:
             importer.filename = filename  # for error reporting
@@ -116,9 +115,9 @@ def exportLayers(context):
         return
 
     exporter = queryMultiAdapter((sm, context), IBody,
-                                 name=u'plone.browserlayer')
+                                 name='plone.browserlayer')
     if exporter is not None:
-        filename = '%s%s' % (exporter.name, exporter.suffix)
+        filename = f'{exporter.name}{exporter.suffix}'
         body = exporter.body
         if body is not None:
             context.writeDataFile(filename, body, exporter.mime_type)
