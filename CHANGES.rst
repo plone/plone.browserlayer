@@ -111,7 +111,7 @@ Fixes:
 2.1.2 (2012-10-03)
 ------------------
 
-- Add support for calling many times remove in export (ie:even when no corresponding layer is registred, remove option should not throw exception).
+- Add support for calling many times remove in export (ie:even when no corresponding layer is registered, remove option should not throw exception).
   [toutpt]
 
 2.1.1 (2011-11-24)

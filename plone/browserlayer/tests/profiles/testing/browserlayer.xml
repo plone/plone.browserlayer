@@ -1,4 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <layers>
-    <layer name="plone.browserlayer.tests"
-           interface="plone.browserlayer.tests.interfaces.IMyProductLayer" />
+  <layer interface="plone.browserlayer.tests.interfaces.IMyProductLayer"
+         name="plone.browserlayer.tests"
+  />
 </layers>
