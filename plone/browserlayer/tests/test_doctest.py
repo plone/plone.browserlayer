@@ -21,7 +21,11 @@ def test_suite():
                 doctest.DocFileSuite(
                     "README.rst",
                     package="plone.browserlayer",
-                    optionflags=(doctest.ELLIPSIS | doctest.REPORT_ONLY_FIRST_FAILURE),
+                    optionflags=(
+                        doctest.ELLIPSIS
+                        | doctest.REPORT_ONLY_FIRST_FAILURE
+                        | doctest.NORMALIZE_WHITESPACE
+                    ),
                     checker=Py23DocChecker(),
                 ),
                 layer=PLONEBROWSERLAYER_FUNCTIONAL_TESTING,

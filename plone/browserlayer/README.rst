@@ -26,6 +26,7 @@ We can view a view registered for the default layer, though:
     >>> browser.open(layer['portal'].absolute_url() + '/@@standard-test-view')
     >>> print(browser.contents)
     A standard view
+    <BLANKLINE>
 
 However, if we install the product the interface is registered in the local
 site manager. Here we use the utility method directly, though we could also
