@@ -8,6 +8,16 @@ Changelog
 
 .. towncrier release notes start
 
+4.0.0a2 (2025-11-29)
+--------------------
+
+Bug fixes:
+
+
+- Fix removal of pkg_resources namespace. @davisagli
+- Move to src-layout.  @mauritsvanrees
+
+
 4.0.0a1 (2025-11-26)
 --------------------
 
